@@ -2,7 +2,7 @@ import os
 from groq import Groq
 from dotenv import load_dotenv
 from segmenter import Clause
-from models.schemas import RiskScore, Conflict, NegotiationSuggestion, RiskLevel
+from schemas import RiskScore, Conflict, NegotiationSuggestion, RiskLevel
 
 load_dotenv()
 
@@ -139,5 +139,6 @@ def summarize(
         temperature=0.2
     )
     legal_summary = legal_response.choices[0].message.content.strip()
+
 
     return business_summary, legal_summary
