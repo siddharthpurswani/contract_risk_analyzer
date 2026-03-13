@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 from groq import Groq
 from segmenter import Clause
-from models.schemas import ClauseType, RiskLevel, RiskScore
+from schemas import ClauseType, RiskLevel, RiskScore
 
 
 # --- Static risk rules ---
@@ -154,5 +154,6 @@ def score_risks(clauses: list[Clause], groq_api_key: str = "") -> list[RiskScore
             reasoning=reasoning,
             deviation_score=clause.deviation_score
         ))
+
 
     return results
