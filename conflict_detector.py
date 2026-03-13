@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 from groq import Groq
 from segmenter import Clause
-from models.schemas import ClauseType, RiskLevel, Conflict
+from schemas import ClauseType, RiskLevel, Conflict
 
 
 # --- Rule-based conflict patterns ---
@@ -202,5 +202,6 @@ def detect_conflicts(clauses: list[Clause], groq_api_key: str = "") -> list[Conf
         client = Groq(api_key=groq_api_key or os.getenv("GROQ_API_KEY"))
         llm_conflicts = run_llm_checks(clauses, client)
         conflicts.extend(llm_conflicts)
+
 
     return conflicts
