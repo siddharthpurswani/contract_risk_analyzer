@@ -5,7 +5,7 @@ import faiss
 from pathlib import Path
 from segmenter import Clause
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 FAISS_INDEX_PATH = os.path.join(PROJECT_ROOT, "clauses.index")
 METADATA_PATH = os.path.join(PROJECT_ROOT, "metadata.json")
 
@@ -148,3 +148,4 @@ def run_rag(clauses: list[Clause]) -> list[Clause]:
 
 
     return clauses
+
