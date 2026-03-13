@@ -2,7 +2,7 @@ import os
 from groq import Groq
 from dotenv import load_dotenv
 from segmenter import Clause
-from models.schemas import RiskLevel, RiskScore, NegotiationSuggestion
+from schemas import RiskLevel, RiskScore, NegotiationSuggestion
 
 load_dotenv()
 
@@ -95,5 +95,6 @@ def suggest(
         except Exception as e:
             print(f"  Warning: Could not generate suggestion for {clause.clause_id} — {e}")
             continue
+
 
     return suggestions
