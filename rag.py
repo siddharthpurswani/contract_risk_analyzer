@@ -5,9 +5,9 @@ import faiss
 from pathlib import Path
 from segmenter import Clause
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-FAISS_INDEX_PATH = os.path.join(PROJECT_ROOT, "vector_store", "faiss_index", "clauses.index")
-METADATA_PATH = os.path.join(PROJECT_ROOT, "vector_store", "faiss_index", "metadata.json")
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+FAISS_INDEX_PATH = os.path.join(PROJECT_ROOT, "clauses.index")
+METADATA_PATH = os.path.join(PROJECT_ROOT, "metadata.json")
 
 
 # --- Embedding (lazy loaded) ---
@@ -145,5 +145,6 @@ def run_rag(clauses: list[Clause]) -> list[Clause]:
             clause.top_reference = None
             clause.reference_similarity = 0.0
             clause.match_quality = "none"
+
 
     return clauses
