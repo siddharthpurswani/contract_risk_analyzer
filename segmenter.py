@@ -1,7 +1,7 @@
 import re
 from dataclasses import dataclass, field
 from typing import Optional
-from models.schemas import ClauseType
+from schemas import ClauseType
 
 
 # --- Output ---
@@ -97,5 +97,6 @@ def segment(raw_text: str) -> list[Clause]:
 
     # Save the last clause
     save_clause()
+
 
     return clauses
