@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 from groq import Groq
 from segmenter import Clause
-from models.schemas import ClauseType
+from schemas import ClauseType
 
 # --- Keyword map (fast path) ---
 
@@ -123,5 +123,6 @@ def classify(clauses: list[Clause], groq_api_key: str = "") -> list[Clause]:
             ctype = classify_by_llm(clause, client)
 
         clause.clause_type = ctype
+
 
     return clauses
